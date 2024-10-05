@@ -20,7 +20,7 @@
 </body>
 </html>
 <script>
-    const labels = [
+    const labelsHora = [
       '12:00',
       '13:00',
       '14:00',
@@ -28,9 +28,18 @@
       '16:00',
       '17:00',
     ];
+
+    const labelsMes = [
+      'Janeiro',
+      'Fevereivo',
+      'Março',
+      'Abril',
+      'Maio',
+      'Junho',
+    ];
   
-    const data = {
-      labels: labels,
+    const dataLine = {
+      labels: labelsHora,
       datasets: [{
         label: 'Temperatura',
         backgroundColor: 'rgb(255, 99, 132)',
@@ -43,16 +52,31 @@
         data: [80, 82, 80, 85, 80, 83],
       }]
     };
+
+    const dataBar = {
+      labels: labelsMes,
+      datasets: [{
+        label: 'Temperatura Média',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [22, 24, 27, 23, 20, 18],
+      }, {
+        label: 'Umidade Média',
+        backgroundColor: 'rgba(54,162,235,255)',
+        borderColor: 'rgba(54,162,235,255)',
+        data: [90, 89, 93, 87, 88, 82],
+      }]
+    };
   
-    const config = {
+    const configLine = {
       type: 'line',
-      data: data,
+      data: dataLine,
       options: {}
     }
 
-    const config2 = {
+    const configBar = {
       type: 'bar',
-      data: data,
+      data: dataBar,
       options: {}
     }
     ;
@@ -60,12 +84,12 @@
 <script>
     const myChart = new Chart(
       document.getElementById('myChart'),
-      config
+      configLine
     );
 
     const myChart2 = new Chart(
       document.getElementById('myChart2'),
-      config2
+      configBar
     );
 
   </script>
